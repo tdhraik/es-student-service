@@ -1,0 +1,28 @@
+spring:
+  application.name: es-student-service
+
+  jackson:
+    serialization.WRITE_DATES_AS_TIMESTAMPS: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/es_student
+    username: es_db_student
+    password: edusys2020
+    driver-class-name: org.postgresql.Driver
+    schema: classpath:/schema-postgres.sql
+    initialization-mode: always
+    platform: postgres
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "info", "env"]
